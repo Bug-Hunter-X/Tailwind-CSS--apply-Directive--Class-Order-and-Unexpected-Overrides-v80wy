@@ -1,0 +1,9 @@
+I encountered an unexpected behavior while using Tailwind CSS's `@apply` directive within a component.  I was applying a class containing multiple utility classes, and some of them seemed to be ignored or overridden unexpectedly.  For instance:
+
+```html
+<div class="bg-gray-100 p-4 rounded-lg @apply text-center text-xl font-bold">
+  This text should be gray, centered, large, and bold.
+</div>
+```
+
+The `text-center`, `text-xl`, and `font-bold` classes worked fine when applied directly, but when using `@apply`, only some were applied.  Inspecting the browser's developer tools revealed that the order of classes within the `@apply` directive is critical and certain classes were being overridden silently, leading to unpredictable results.
