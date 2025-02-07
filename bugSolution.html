@@ -1,0 +1,11 @@
+The issue stems from class specificity and the order of classes within the `@apply` directive.  Certain utility classes might override others based on their specificity. The solution involves ensuring correct class order or rewriting classes to avoid unexpected overriding. Here's a revised version:
+
+```html
+<div class="bg-gray-100 p-4 rounded-lg relative">
+  <div class="text-center text-xl font-bold absolute inset-0 m-auto">
+    This text should be gray, centered, large, and bold.
+  </div>
+</div>
+```
+
+Instead of relying solely on `@apply`, this solution directly applies the most critical classes (`text-center`, `text-xl`, `font-bold`). Then the relative and absolute positioning is used to correctly position the text within the div.  Alternatively, one can use more specific Tailwind classes to override conflicting styles.
